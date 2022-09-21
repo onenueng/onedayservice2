@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    // return view('welcome');
+    return view('welcome');
     // return 'one day service 2';
     // return 200;
-    return ['foo' =>1,
-            'bar' =>2];
+    // return ['foo' =>1,
+    //         'bar' =>2];
 });
