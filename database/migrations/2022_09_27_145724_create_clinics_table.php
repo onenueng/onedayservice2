@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\Clinic;
 
 return new class extends Migration
 {
@@ -20,6 +21,14 @@ return new class extends Migration
             $table->boolean('active')->default(true);
             $table->timestamps();
         });
+
+        Clinic::create(['name'=>'โรคภูมิแพ้', 'code'=>'0573']);
+        Clinic::create(['name'=>'โรคผิวหนัง', 'code'=>'0574']);
+        Clinic::create(['name'=>'โรคโภชนาการ', 'code'=>'0575']);
+        Clinic::create(['name'=>'โรคต่อมไร้ท่อ', 'code'=>'057ุ6']);
+        Clinic::create(['name'=>'โรคพันธุศาสตร์', 'code'=>'0577']);
+        Clinic::create(['name'=>'โรคข้อ', 'code'=>'05785']);
+        Clinic::create(['name'=>'โรคไต', 'code'=>'05785']);
     }
 
     /**
