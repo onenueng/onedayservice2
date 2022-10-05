@@ -28,6 +28,14 @@ return new class extends Migration
             $table->timestamps();
         });
 
+        Patient::create([
+            'hn' => 65123456,
+            'full_name' => 'P Test',
+            'gender' => 1,
+            'dob'=>'2021-01-01',
+            'phone'=>'1234567890'
+        ]);
+
 
         
     }
