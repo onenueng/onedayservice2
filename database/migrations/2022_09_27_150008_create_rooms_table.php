@@ -21,6 +21,9 @@ return new class extends Migration
             $table->boolean('active')->default(true);
             $table->timestamps();
         });
+
+        Room::Create(['name_short' => 'จฟ.1','name' =>'ห้อง treatment จฟ.1','active'=> 'true']);
+        Room::Create(['name_short' => 'จฟ.7','name' =>'ห้องทดสอบ เจ้าฟ้า 7','active'=> 'true']);
     }
 
     /**
