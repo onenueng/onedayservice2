@@ -10,4 +10,9 @@ class Bed extends Model
     use HasFactory;
 
     protected $fillable = ['no', 'type', 'room_id', 'active'];
+
+    public function Bed()
+    {
+        return $this->belongsTo(Room::class);
+    }
 }

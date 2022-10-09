@@ -9,4 +9,9 @@ class Procedure extends Model
 {
     use HasFactory;
     protected $fillable = ['name','clinic_id','active'];
+
+    public function Clinic()
+    {
+        return $this->belongsTo(Clinic::class);
+    }
 }
