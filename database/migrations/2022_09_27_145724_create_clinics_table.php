@@ -22,15 +22,14 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Clinic::create(['name'=>'โรคภูมิแพ้', 'code'=>'0573','active'=> 'true']);
-        Clinic::create(['name'=>'โรคผิวหนัง', 'code'=>'0574','active'=> 'true']);
-        Clinic::create(['name'=>'โรคโภชนาการ', 'code'=>'0575','active'=> 'true']);
-        Clinic::create(['name'=>'โรคต่อมไร้ท่อ', 'code'=>'057ุ6','active'=> 'true']);
-        Clinic::create(['name'=>'โรคพันธุศาสตร์', 'code'=>'0577','active'=> 'true']);
-        Clinic::create(['name'=>'โรคข้อ', 'code'=>'05785','active'=> 'true']);
-        Clinic::create(['name'=>'โรคไต', 'code'=>'05785','active'=> 'true']);
+        Clinic::create(['name' => 'โรคภูมิแพ้', 'code' => '0573', 'active' => true ]);
+        Clinic::create(['name' => 'โรคผิวหนัง', 'code' => '0574', 'active' => true]);
+        Clinic::create(['name' => 'โรคโภชนาการ', 'code' => '0575', 'active' => true]);
+        Clinic::create(['name' => 'โรคต่อมไร้ท่อ', 'code' => '0576', 'active' => true]);
+        Clinic::create(['name' => 'โรคพันธุศาสตร์', 'code' => '0577','active' => true]);
+        Clinic::create(['name' => 'โรคข้อ', 'code' => '0585', 'active' => true]);
+        Clinic::create(['name' => 'โรคไต', 'code' => '0585', 'active' => true]);
     }
-
     /**
      * Reverse the migrations.
      *

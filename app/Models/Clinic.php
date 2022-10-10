@@ -9,10 +9,16 @@ class Clinic extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['code','name','active'];
+    protected $fillable = ['code', 'name', 'active'];
 
-    Public function Proceudre()
+    public function procedures()
     {
-        return $this->belongsTo(Procedure::Class);
+        return $this->hasMany(Procedure::class); // 'App\Models\Procedure'
     }
+
+    public function bookings()
+    {
+        return $this->belongsTo(Booking::class);
+    }
+
 }

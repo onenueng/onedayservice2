@@ -9,10 +9,17 @@ class Bed extends Model
 {
     use HasFactory;
 
+
     protected $fillable = ['no', 'type', 'room_id', 'active'];
 
-    public function Bed()
+    public function room()
     {
         return $this->belongsTo(Room::class);
+
+    }
+
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class);
     }
 }
