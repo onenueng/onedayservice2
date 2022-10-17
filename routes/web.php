@@ -20,3 +20,23 @@ Route::get('/', function () {
     // return ['foo' =>1,
     //         'bar' =>2];
 });
+
+Route::get('/booking', function(){
+
+    // return App\Models\Bed::all();
+    return view('booking');
+});
+
+Route::post('/booking', function(){
+    //validate
+    //save to table
+    //redirect
+    return request()->all();
+});
+
+Route::get('/beds', function(){
+
+    // return App\Models\Bed::all();
+    return App\Models\Bed::find(4);
+});
+

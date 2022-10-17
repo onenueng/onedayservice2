@@ -26,3 +26,10 @@ bed_id
 วันประจำสัปดาห์ (bookings_week_day)
 clinic_id
 procedure_id
+
+# MVC
+#Model-database mapper
+#View - UI => template(html+css) + data(Model)
+#Controller -flow
+
+## CSRF token ใช้กับการ post request
