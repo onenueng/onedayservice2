@@ -7,12 +7,12 @@
 2. Room has many beds
 
 #relationship
-booking -> patient_id
-booking -> room_id
-booking -> bed_id
-booking -> clinic_id
-booking -> procedure_id          
-booking -> user_id
+booking -> patient_id //1 booking มีได้ 1 patient, 1 patient มีได้หลาย booking
+booking -> room_id //1 booking มีได้ 1 room, 1 room มีได้หลาย booking
+booking -> bed_id //1 booking มีได้ 1 bed, 1 bed มีได้หลาย booking
+booking -> clinic_id  //1 booking มีได้ 1 clinic, 1 clinic มีได้หลาย booking
+booking -> procedure_id //1 booking มีได้ 1 procedure, 1 procedure มีได้หลาย booking         
+booking -> user_id //1 booking มีได้ 1 user, 1 user มีได้หลาย booking
 
 #reservation
 patient_id

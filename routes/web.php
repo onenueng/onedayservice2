@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Bed;
+use App\Models\Procedure;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +26,10 @@ Route::get('/', function () {
 Route::get('/booking', function(){
 
     // return App\Models\Bed::all();
-    return view('booking');
+    return view('booking')->with([
+        'beds'=>Bed::all(),
+        'procedures'=>Procedure::all()
+    ]);
 });
 
 Route::post('/booking', function(){

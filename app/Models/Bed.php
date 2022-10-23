@@ -22,4 +22,6 @@ class Bed extends Model
     {
         return $this->hasMany(Booking::class);
     }
+
+    //$bed->room->name_short . 'bed_no'.$bed->no.''.$bed->type
 }
