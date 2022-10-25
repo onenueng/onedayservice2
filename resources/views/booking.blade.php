@@ -41,28 +41,22 @@
         <div class="mb-3 row" >
             <label for="exampleFormControlInput1" class="col-sm-2 form-label">เตียง</label>
             <div class="col-sm-4">
-                <select class="form-select" aria-label="Default select example" name="bed">
-                <option selected>กรุณาเลือกเตียง</option>
-                @foreach($beds as $bed)
-                <option value="{{ $bed->id }}" >{{ $bed->room->name_short  . ' bed_no '.$bed->no.' '.$bed->type }}</option>
+            <select name="beds" id="bed" class="form-select">
+                <option selected>--กรุณาเลือกเตียง--</option>
+                @foreach ($beds as $bed)
+                    <option value="{{  $bed->id  }}">{{ $bed->room->name_short.'bed no' . $bed->no .' เตียง '.$bed->type }}</option>
                 @endforeach
-                </select>
-                
+            </select>
             </div>
         </div>
-        <div class="mb-3 row" >
-            <label for="exampleFormControlInput1" class="col-sm-2 form-label">หัตถการ</label>
-            <div class="col-sm-4">
-                <select class="form-select" aria-label="Default select example" name="procedure">
-                <option selected>กรุณาเลือกคลินิก</option>
-                @foreach($procedures as $pr)
-                <option value="{{ $pr->id }}">{{ $pr->clinic->name." ".$pr->name  }}</option>
+        <div class="mb-3" >
+            <label for="procedures" class="form-label">หัตถการ</label>
+            <select name="procedures" id="procedure" class="form-select">
+                <option selected>--กรุณาเลือกหัตถการ--</option>
+                @foreach ($procedures as $procedure)
+                <option value="{{  $procedure->id  }}">{{ $procedure->clinic_id. ' '. $procedure->name }}</option>
                 @endforeach
-                <!-- <option value="2">เตียง 2 จฟ. 7</option>
-                <option value="3">เตียง 3 จฟ. 7</option>
-                <option value="3">เตียง 4 จฟ. 7</option> -->
-                </select>
-            </div>
+            </select>
         </div>
         <input type="submit" value="submit" class="btn-primary">
 
