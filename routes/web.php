@@ -38,16 +38,18 @@ Route::post('/booking', function(){
     //validate
     //save to table
     //redirect
-    $data = request->all();
+    $data = request()->all();
+    // return $data;
     $booking = new Booking();
     $booking->patient_id = 1;
-    $booking->bed_id = $data['bed'];
+    $booking->bed_id = $data['bed']; //เตียง
     $booking->room_id = Bed::find($data['bed'])->room->id;
-    $booking->room_id =$data['bed'];
-    $booking->procedure_id = $data['procedure'];
-    $procedure = Procedure::find($data['procedure']);
-    $booking->clinic_id = $procedure->clinic->id;
-    
+    // $bed = Bed::find($data['bed']); //ได้ข้อมูล recored นั้นของ Bed มา
+    // $booking->room_id = $bed->room->id //เอา recored ของ bed ที่ได้มามาหาความสัมพันธ์กับ room
+    $booking->procedure_id = $data['procedure']; //procedure
+    // $procedure = Procedure::find($data['procedure']);//ได้ข้อมูล recored นั้นของ procedure มา
+    // $booking->clinic_id = $procedure->clinic->id; //เอา recored ของ procedure ที่ได้มามาหาความสัมพันธ์กับ clinic
+    $booking->clinic_id = Procedure::find($data['procedure'])->clinic->id;
     //datetime_start
     if ($data['time'] == 'morning'){
         $booking->datetime_start = $data['datetime_start'].''.'09:00:00';
@@ -58,8 +60,8 @@ Route::post('/booking', function(){
     }
 
     //weekday
-    $booking->week_day = now()->parse($data['week_day'])->weekDay();
-    $booking->bed_id = 1;
+    $booking->week_day = now()->parse($data['datetime_start'])->weekDay();
+    // $booking->bed_id = 1;
     $booking->user_id = 1;
     $booking->save();
 
