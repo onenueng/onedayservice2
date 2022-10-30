@@ -18,10 +18,10 @@ return new class extends Migration
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
             $table->foreignId('patient_id')->constrained();
-            $table->foreignId('room_id')->constrained();
             $table->foreignId('bed_id')->constrained();
-            $table->foreignId('clinic_id')->constrained();
-            $table->foreignId('procedure_id')->constrained();          
+            $table->foreignId('room_id')->constrained();
+            $table->foreignId('procedure_id')->constrained();   
+            $table->foreignId('clinic_id')->constrained();       
             $table->timestamp('datetime_start');
             $table->timestamp('datetime_stop');
             $table->unsignedTinyInteger('week_day')->index();

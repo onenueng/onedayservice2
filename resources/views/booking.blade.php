@@ -55,7 +55,7 @@
                 <select name="procedure" id="procedure" class="form-select">
                     <option selected>--กรุณาเลือกหัตถการ--</option>
                     @foreach ($procedures as $procedure)
-                    <option value="{{  $procedure->id  }}">{{ $procedure->clinic_id. ' '. $procedure->name }}</option>
+                    <option value="{{  $procedure->id  }}">{{ $procedure->clinic->name. ' '. $procedure->name }}</option>
                     @endforeach
                 </select>
             </div>
