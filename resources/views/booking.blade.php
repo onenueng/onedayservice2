@@ -41,7 +41,7 @@
         <div class="mb-3 row" >
             <label for="exampleFormControlInput1" class="col-sm-2 form-label">เตียง</label>
             <div class="col-sm-4">
-            <select name="bed" id="bed" class="form-select">
+            <select name="bed_id" id="bed_id" class="form-select">
                 <option selected>--กรุณาเลือกเตียง--</option>
                 @foreach ($beds as $bed)
                     <option value="{{  $bed->id  }}">{{ $bed->room->name_short.'bed no' . $bed->no .' เตียง '.$bed->type }}</option>
@@ -52,7 +52,7 @@
        <div class="mb-3 row" >
             <label  for="exampleFormControlInput1"" class="col-sm-2 form-label">หัตถการ</label>
             <div class="col-sm-4">
-                <select name="procedure" id="procedure" class="form-select">
+                <select name="procedure_id" id="procedure_id" class="form-select">
                     <option selected>--กรุณาเลือกหัตถการ--</option>
                     @foreach ($procedures as $procedure)
                     <option value="{{  $procedure->id  }}">{{ $procedure->clinic->name. ' '. $procedure->name }}</option>
