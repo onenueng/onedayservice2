@@ -14,6 +14,13 @@
         <img src="https://www.si.mahidol.ac.th/th/department/pediatrics/images/demo/headped.png" alt="logo" class="col-sm-3">
         <div class="col-sm-6"> <p class="h1 text-left">One Day Service</p></div>
     </div>
+    @if (session('feedback'))
+        <div class="alert alert-danger">
+            {{ session('feedback') }}
+        </div>
+    @endif
+
+
     <form action="/booking" method ="post">
         @csrf
         
@@ -26,14 +33,14 @@
             <div class="mb-3 row">
                 <label for="exampleFormControlInput1" class="col-sm-2 col-form-label">เวลา</label>
                 <div class="form-check col-sm-2">
-                    <input class="form-check-input" type="radio" name="time" id="flexRadioDefault1" value ="morning">
-                    <label class="form-check-label" for="flexRadioDefault1">
+                    <input class="form-check-input" type="radio" name="time" id="time1" value ="morning">
+                    <label class="form-check-label" for="time1">
                         เช้า
                     </label>
                 </div>
                 <div class="form-check col-sm-2">
-                    <input class="form-check-input" type="radio" name="time" id="flexRadioDefault2" value ="afternoon" checked>
-                    <label class="form-check-label" for="flexRadioDefault2">
+                    <input class="form-check-input" type="radio" name="time" id="time2" value ="afternoon">
+                    <label class="form-check-label" for="time2">
                         บ่าย
                     </label>
                 </div>
@@ -49,6 +56,8 @@
             </select>
             </div>
         </div>
+
+
        <div class="mb-3 row" >
             <label  for="exampleFormControlInput1"" class="col-sm-2 form-label">หัตถการ</label>
             <div class="col-sm-4">
@@ -60,8 +69,7 @@
                 </select>
             </div>
         </div> 
-      
-        <input type="submit" value="submit" class="btn-primary">
+        <input type="submit" value ="submit" class="btn btn-primary">      
 
     </form>
     </div>

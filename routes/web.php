@@ -39,6 +39,12 @@ Route::post('/booking', function(){
     //save to table
     //redirect
     $data = request()->all();
+    $currentdate = date('Y-m-d');
+
+    if ($data['datetime_start'] < $currentdate){
+        return back()->with('feedback', 'จองวันที่ย้อนหลังไม่ได้');
+        // return 'จองวันที่ย้อนหลังไม่ได้';
+    }
 
     if ($data['time'] == 'morning'){
         $datetime_start = $data['datetime_start'].''.'09:00:00';
@@ -51,10 +57,11 @@ Route::post('/booking', function(){
     
     $bookAlready = Booking::where('bed_id',$data['bed_id'])->Where('datetime_start', $datetime_start)->count();
 
-    return $bookAlready;
+    // return $bookAlready;
 
     if ($bookAlready > 0){
-        return 'เตียงนี้ถูกจองแล้ว';
+        // return 'เตียงนี้ถูกจองแล้ว';
+        return back()->with('feedback', 'เตียงนี้ถูกจองแล้ว');
     }
 
     // return $data;
@@ -78,7 +85,8 @@ Route::post('/booking', function(){
     $booking->user_id = 1;
     $booking->save();
 
-    return $booking;
+    // return $booking;
+    return back()->with('feedback', 'จองเตียงสำเร็จแล้ว');
 
     //return request()->all();
 });
