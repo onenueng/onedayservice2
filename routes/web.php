@@ -55,9 +55,10 @@ Route::post('/booking', function(){
     }
    
     
-    $bookAlready = Booking::where('bed_id',$data['bed_id'])->Where('datetime_start', $datetime_start)->count();
+    //check bed & datetime
+    $bookAlready = Booking::where('bed_id',$data['bed_id'])->where('datetime_start', $datetime_start)->count();
 
-    // return $bookAlready;
+    //  return $bookAlready;
 
     if ($bookAlready > 0){
         // return 'เตียงนี้ถูกจองแล้ว';
@@ -68,13 +69,16 @@ Route::post('/booking', function(){
     $booking = new Booking();
     $booking->patient_id = 1;
     $booking->bed_id = $data['bed_id']; //เตียง
-    $booking->room_id = Bed::find($data['bed_id'])->room->id;
-    // $bed = Bed::find($data['bed']); //ได้ข้อมูล recored นั้นของ Bed มา
-    // $booking->room_id = $bed->room->id //เอา recored ของ bed ที่ได้มามาหาความสัมพันธ์กับ room
+    // $booking->room_id = Bed::find($data['bed_id'])->room->id;
+    $bed = Bed::find($data['bed_id']); //ได้ข้อมูล recored นั้นของ Bed มา
+    $booking->room_id = $bed->room->id; //เอา recored ของ bed ที่ได้มามาหาความสัมพันธ์กับ room
+
     $booking->procedure_id = $data['procedure_id']; //procedure
-    // $procedure = Procedure::find($data['procedure']);//ได้ข้อมูล recored นั้นของ procedure มา
-    // $booking->clinic_id = $procedure->clinic->id; //เอา recored ของ procedure ที่ได้มามาหาความสัมพันธ์กับ clinic
-    $booking->clinic_id = Procedure::find($data['procedure_id'])->clinic->id;
+    $procedure = Procedure::find($data['procedure_id']);//ได้ข้อมูล recored นั้นของ procedure มา
+    $booking->clinic_id = $procedure->clinic->id; //เอา recored ของ procedure ที่ได้มามาหาความสัมพันธ์กับ clinic
+
+
+    // $booking->clinic_id = Procedure::find($data['procedure_id'])->clinic->id;
     //datetime_start
     $booking->datetime_start = $datetime_start;
     $booking->datetime_stop = $datetime_stop;
@@ -83,7 +87,7 @@ Route::post('/booking', function(){
     //weekday
     $booking->week_day = now()->parse($data['datetime_start'])->weekDay();
     $booking->user_id = 1;
-    $booking->save();
+    $booking->save(); //insert data
 
     // return $booking;
     return back()->with('feedback', 'จองเตียงสำเร็จแล้ว');
